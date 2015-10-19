@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title><%- block('header').toString() %></title>
+
+<link href="/stylesheets/bootstrap.css" rel="stylesheet" />
+<link href="/stylesheets/bootstrap-responsive.css" rel="stylesheet">
+
+<style>
+	body{padding-top: 60px;padding-bottom: 40px;}
+	.container{width:960px;margin:0 auto;}
+</style>
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+			<a class="brand" href="/">_nEIL Blog</a>
+			<div class="nav-collapse">
+				<ul class="nav">
+					<li class="active"><a href="/">首頁</a></li>
+				
+					<%if ( typeof(user) != 'undefined' && user != null) {  %>
+						<li><a href="/logout">登出</a></li>
+						<li>
+							<a href="/profile?email=<%=user.email%>" ><img  src="/images/user.jpg"   height="25" width="25">
+							</a>
+						</li>
+					<% } else { %>
+						<li><a href="/login">登入</a></li>
+						<li><a href="/reg">註冊</a></li>
+					<%} %>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="container" class="container">
+	<% if(locals.success) { %>
+	<div class="alert alert-success">
+	<%=success%>
+	</div>
+	<%}%>
+	<%if(locals.error) { %>
+	<div class ="alert alert-error">
+		<%=error%>
+	</div>
+	<% } %>
+	<%-body -%>
+</div>
+
+<% include ./partials/footer.ejs %>
+
+
+
+<script src="/javascripts/jquery.js"></script>
+<script src="/javascripts/bootstrap.js"></script>
+</body>
+</html>

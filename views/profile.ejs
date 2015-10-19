@@ -1,0 +1,53 @@
+
+<form class="form-horizontal" method="post" action="/profile" enctype="multipart/form-data">
+	<fieldset>
+		<legend>Edit profile</legend>
+		<div class="control-group">
+			<label class="control-label" for="Email">Email</label>
+			<div class="controls">
+				<input type="text" class="input-xlarge" id="email" name="email" 
+				   value="<%=user.email%>" >
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="Name">Name</label>
+			<div class="controls">
+				<input type="text" class="input-xlarge" id="firstname" name="firstname" placeholder="first name" 
+					value="<%user.firstname%>" >
+				<input type="text" class="input-xlarge" id="lastname" name="lastname" 
+				  placeholder="last name"  value="<%=user.lastname%>" >
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="password">密碼</label>
+			<div class="controls">
+				<input type="text" class="input-xlarge" id="password" name="password" placeholder="Enter your Password">
+			</div>
+		</div>		
+		<div class="control-group">
+			<label class="control-label" for="picture">Picture</label>
+			<div class="controls">
+				<input type="file" class="input-xlarge" id="picture" name="picture">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="username">Username</label>
+			<div class="controls">
+				<input type="text" class="input-xlarge" id="username" name="username" value="<%=user.username%>" >
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="aboutyou">About you</label>
+			<div class="controls">
+				<textarea class="input-xlarge" id="aboutyou" name="aboutyou" rows="4" cols="20">
+				<%=user.aboutyou.trim()%>
+				 </textarea>
+			</div>
+		</div>	
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary">確認</button>
+		</div>
+	</fieldset>
+</from>
+

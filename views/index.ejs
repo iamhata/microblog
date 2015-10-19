@@ -1,0 +1,15 @@
+
+<% if (!user) { %>
+<div class="hero-unit">
+	<h1>歡迎來到 _nEIL Blog</h1>
+	<p><font color='red' >Node js Blog</font></p>
+	<p>
+		<a class="btn btn-primary btn-large" href="/login">登入</a>
+		<a class="btn btn-large" href="/reg">立即註冊</a>
+	</p>
+</div>
+<% } else { %>
+	<%- partial('say') %>
+<% } %>
+
+<%- partial('post',posts) %>
